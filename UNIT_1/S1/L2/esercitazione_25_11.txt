@@ -1,0 +1,110 @@
+
+Sotto riportata l'esercitazione del giorno 25.11.25 relativa all'analisi degli indirizzi IP ed una relazione di come ho svolto l'esercizio
+
+1) dall'indirizzo IP fiornito tramite la cacolatrice risalgo all'indirizzo IP BINARIO
+2) Nella SUBNET inserisco il numero  "1"  tanti quanti indicati nel CIDR e completo gli ottetti con gli 0
+3) Per la RETE ho ripreso i primi due ottetti dell'ip binario aggiungendo gli zeri per i due ottetti rimanenti
+4) per il BROADCAST riporto di nuovo i primi due ottetti dell'ip binario, ma stavolta completo gli ottetti restanti con l'"1"
+5) per le due porte GATEWAY ho inserito nuovamente i primi due ottetti dell'ip binario ma ho invertito le due parti degli ottetti rimanenti, prima gli 1 e poi gli zeri
+6) Per calcolare il NUMERO MASSIMO DEGLI HOST ho sottratto dal numero massimo dei bit (32) al numero indicato del cidr. Dalla differenza che ho ottenuto l'ho elevata alla potenza di 2^ in quanto ogni bit può ossumere al massimo due valori. Infine dal risulato ottetto ho sottratto il valore 2 relativi ai due dispositivi che non possono essere utilizzati.
+7) Dall'analisi della subnet ho attribuito il numero degli ottetti alla rete e all'host. 
+
+
+ip:         128.1.6.5/12 
+ip binario: 10000000.00000001.00000110.00000101
+maschera:   11111111.11110000.00000000.00000000 
+
+rete:       10000000.00000001.00000000.00000000 
+broadcast:  10000000.00000001 11111111.11111111 > 128.1.255.255 in decimali
+
+gateway 1:  10000000.00000001.11111111.11111111
+gateway 2:  10000000.00000001.00000000.00000000
+
+numero massimo host: 32 fissi - 12 = 20 / 2^20= 1.048.576 - 2 = 1.048574
+rete: un ottetto e mezzo
+host: 2 ottetti e mezzo
+
+________________________________________________________________________________
+
+
+ip: 	    200.1.2.3/24 
+ip binario: 11001000.00000001.00000010.00000011
+maschera:   11111111.11111111.11111111.00000000
+
+rete:       11001000.00000001.00000000.00000000 
+broadcast:  11001000.00000001.11111111.11111111 > 200.1.255.255 in decimali
+
+gateway 1:  11001000.00000001.11111111.11111111
+gateway 2:  11001000.00000001.00000000.00000000
+
+numero massimo host: 32 fissi - 24 = 8 / 2^8= 256 - 2 = 254 
+rete: 3 ottetti 
+host: un ottetto
+
+___________________________________________________________________________________
+
+ip:         192.192.1.1/22 
+ip binario: 11000000.11000000.00000001.00000001
+maschera:   11111111.11111111.11111100.00000000
+
+rete:       11000000.11000000.00000000.00000000
+broadcast:  11000000.11000000.11111111.11111111 > 192.192.255.255 in decimali
+
+gateway 1:  11000000.11000000.11111111.11111111 
+gateway 2:  11000000.11000000.00000000.00000000
+
+numero massimo host: 32 fissi - 22 = 10 / 2^10= 1024 - 2 = 1022
+rete: 2 ottetti e mezzo 
+host: un ottetto e mezzo
+
+_______________________________________________________________________________________
+
+
+ip:          126.5.4.3/9 
+ip binario:  01111110.00000101.00000100.00000011
+maschera:    11111111.10000000.00000000.00000000
+
+rete:        01111110.00000101.00000000.00000000
+broadcast:   01111110.00000101.11111111.11111111 > 126.5.255.255 in decimali
+
+gateway 1:   01111110.00000101.11111111.11111111
+gateway 2:   01111110.00000101.00000000.00000000 
+
+numero massimo host: 32 fissi - 9 = 23 / 2^23= 8.388.608 - 2 = 8.388.606
+rete: un ottetto
+host: 3 ottetti
+
+
+____________________________________________________________________________________________
+
+
+ip:          200.1.9.8/24 
+ip binario:  11001000.00000001.00001001.00001000
+maschera:    11111111.11111111.11111111.00000000
+
+rete:        11001000.00000001.00000000.00000000
+broadcast:   11001000.00000001.11111111.11111111 > 200.1.255.255 in decimali 
+
+gateway 1:   11001000.00000001.11111111.11111111
+gateway 2:   11001000.00000001.00000000.00000000
+
+numero massimo host: 32 fissi - 24 = 8 / 2^8= 256 - 2 = 254 
+rete: 3 ottetti 
+host: un ottetto
+
+______________________________________________________________________________________________
+
+
+ip:          172.16.0.4/16
+ip binario:  10101100.00010000.00000000.00000100
+maschera:    11111111.11111111.00000000.00000000
+
+rete:        10101100.00010000.00000000.00000000 
+broadcast:   10101100.00010000.11111111.11111111 > 172.16.255.255 in decimali 
+
+gateway 1:   10101100.00010000.00000000.00000000
+gateway 2:   10101100.00010000.11111111.11111111
+
+numero massimo host: 32 fissi - 16 = 16 / 2^16= 65.536 - 2 = 65.534 
+rete: 2 ottetti
+host: 2 ottetti
