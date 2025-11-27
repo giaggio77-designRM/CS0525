@@ -1,0 +1,10 @@
+ESERCITAZIONE 27.11
+
+per la prima parte dell'esercizio abbiamo i dispositivi con gli indirizzi IP 192.168.100.100 (laptop-PT0) e 192.168.100.103 (PC-PT-PC0) che appartengono alla stessa rete (primi 3 ottetti) e per tanto comunicano tra di loro solo con lo switch e sono stati collegati attraverso il cavo ethernet. Successivamente per la LAPTOP-PT0 ho configurato l'indirizzo ip 192.168.100.100 mask 255.255.255.0 e gateway 192.168.1.1; mentre il PC-PT-PC0 l'ho configurato con ip 192.168.100.103 mask 255.255.255.0 e gateway 192.168.1.1  
+
+Nella seconda parte, per mettere in comunicazione la macchina laptop-PT0 con il laptop-PT2 essendo su due reti diverse necessito del router che permette la comunicazione fra reti differenti. Ho configurato anche il laptop-PT2 e con l'indirizzo ip 192.168.200.100 mask 255.255.255.0 e gateway 192.168.2.1.
+Per mettere in comunicazione router e switch ho effettuato un collegamento con la gigabite ed ho configurato il router inserendo sotto la voce interface l'indirizzo IP 192.168.100.100 nella parte relativa ai gigabitethernet 0/0/0 e l'IP 192.168.200.100 nella parte relativa ai gigabitethernet 0/0/1. Ho inserito il flag su ON per entrambi, ed ho effettuato il test PING.
+
+Per la terza parte, nel caso in cui host e Gateway non si conoscono bisogna prima inviare un'ARP dal dispositivo per richiedere il MAC (00 00 00 00 00 11) del router.
+Una volta che il disposito ha riconosciuto il MAC del router può inviare informazioni ad un altro dispositivo presente in un'altra rete.
+Il pacchetto viene instradato, dal disposito mittente, allo switch che lo inoltra al router che a sua volta lo instrada verso lo switch dell'altra rete. Subito dopo il pachetto arriverà ai dispositivi agganciati al quale risponderà solo l'host nominato che a sua volta rinvierà il pacchetto di conferma al dispositivo mittente. 
